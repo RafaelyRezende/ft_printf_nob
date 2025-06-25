@@ -6,7 +6,7 @@
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 19:12:50 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/06/25 10:43:07 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/06/25 11:03:22 by rluis-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_putstr(char *args)
 	return (tmp);
 }
 
-int ft_putunsigned(unsigned int args)
+int	ft_putunsigned(unsigned int args)
 {
 	int	tmp;
 
