@@ -6,7 +6,7 @@
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 15:03:19 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/06/25 09:46:23 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/06/25 10:10:39 by rluis-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ static int	ft_specifiers(va_list args, const char **c)
 		return (ft_puthexa(va_arg(args, unsigned long), 1));
 	else if (**c == 'X')
 		return (ft_puthexa(va_arg(args, unsigned long), 0));
+	else if (**c == '%')
+		return (ft_putchar('%'));
 	else
 		return (0);
 }
@@ -98,6 +100,7 @@ int	ft_printf(const char *fmt, ...)
 			i += ft_putchar(*fmt);
 		fmt++;
 	}
+	va_end(args);
 	return (i);
 }
 /*

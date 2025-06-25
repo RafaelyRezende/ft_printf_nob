@@ -6,7 +6,7 @@
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:13:44 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/06/24 19:51:29 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/06/25 10:09:29 by rluis-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,9 @@
 # include <stdarg.h>
 # include <stdint.h>
 
-# define MINUS 1
-# define ZERO 2
-# define DOT 4
-# define POUND 8
-# define SPACE 16
-# define PLUS 32
-
 int	ft_printf(const char *fmt, ...);
 int	ft_putchar(char c);
 int	ft_putstr(char *args);
+int	ft_putunsigned(unsigned int args);
 
 #endif
