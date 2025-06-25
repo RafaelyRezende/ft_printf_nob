@@ -6,17 +6,21 @@
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 15:03:19 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/06/25 10:10:39 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/06/25 10:33:08 by rluis-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_putnbr(long args)
+static int	ft_putnbr(int args)
 {
 	int	tmp;
 
 	tmp = 0;
+	if (args == INT_MIN)
+	{
+		return (ft_putstr((char *)INT_MIN));
+	}
 	if (args < 0)
 	{
 		tmp += ft_putchar('-');
@@ -67,7 +71,7 @@ static int	ft_specifiers(va_list args, const char **c)
 	if (**c == 's')
 		return (ft_putstr(va_arg(args, char *)));
 	else if (**c == 'd' || **c == 'i')
-		return (ft_putnbr(va_arg(args, long)));
+		return (ft_putnbr(va_arg(args, int)));
 	else if (**c == 'c')
 		return (ft_putchar(va_arg(args, int)));
 	else if (**c == 'p')

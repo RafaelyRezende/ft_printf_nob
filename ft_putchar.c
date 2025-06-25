@@ -6,7 +6,7 @@
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 19:12:50 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/06/25 09:56:22 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/06/25 10:21:49 by rluis-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	ft_putstr(char *args)
 
 	i = 0;
 	str = args;
+	if (!str)
+		return (write(1, "(null)", 6));
 	while (str[i])
 		i += ft_putchar(str[i]);
 	return (i);
@@ -34,12 +36,8 @@ int ft_putunsigned(unsigned int args)
 	int	tmp;
 
 	tmp = 0;
-	if (args >= 10)
-	{
+	if (args > 9)
 		tmp += ft_putunsigned(args / 10);
-		tmp += ft_putchar(args % 10 + '0');
-	}
-	if (args <= 9)
-		tmp += ft_putchar(args + '0');
+	tmp += ft_putchar(args % 10 + '0');
 	return (tmp);
 }
