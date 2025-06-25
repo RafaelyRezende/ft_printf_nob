@@ -6,7 +6,7 @@
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 19:12:50 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/06/25 10:21:49 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/06/25 10:43:07 by rluis-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,20 @@ int	ft_putchar(char c)
 int	ft_putstr(char *args)
 {
 	int		i;
+	int		tmp;
 	char	*str;
 
 	i = 0;
+	tmp = 0;
 	str = args;
 	if (!str)
 		return (write(1, "(null)", 6));
 	while (str[i])
-		i += ft_putchar(str[i]);
-	return (i);
+	{
+		tmp += ft_putchar(str[i]);
+		i++;
+	}
+	return (tmp);
 }
 
 int ft_putunsigned(unsigned int args)

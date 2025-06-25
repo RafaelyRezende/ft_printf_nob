@@ -6,7 +6,7 @@
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 15:03:19 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/06/25 10:33:08 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/06/25 10:47:25 by rluis-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ static int	ft_putnbr(int args)
 
 	tmp = 0;
 	if (args == INT_MIN)
-	{
-		return (ft_putstr((char *)INT_MIN));
-	}
+		return (write(1, "-2147483648", 11));
 	if (args < 0)
 	{
 		tmp += ft_putchar('-');
@@ -80,6 +78,8 @@ static int	ft_specifiers(va_list args, const char **c)
 		return (ft_puthexa(va_arg(args, unsigned long), 1));
 	else if (**c == 'X')
 		return (ft_puthexa(va_arg(args, unsigned long), 0));
+	else if (**c == 'u')
+		return (ft_putunsigned(va_arg(args, unsigned int)));
 	else if (**c == '%')
 		return (ft_putchar('%'));
 	else
