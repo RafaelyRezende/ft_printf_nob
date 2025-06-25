@@ -6,7 +6,7 @@
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 15:03:19 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/06/24 19:54:36 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/06/25 09:46:23 by rluis-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ static int	ft_putaddr(void *args)
 	unsigned long	addr;
 
 	addr = (unsigned long) args;
+	if (!addr)
+		return (ft_putstr("(nil)"));
 	return (ft_putchar('0') + ft_putchar('x') + ft_puthexa(addr, 1));
 }
 
