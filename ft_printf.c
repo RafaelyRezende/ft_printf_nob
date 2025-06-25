@@ -6,7 +6,7 @@
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 15:03:19 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/06/25 10:49:54 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/06/25 11:01:40 by rluis-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,8 @@ static int	ft_puthexa(unsigned long args, int flag)
 		choose = "0123456789ABCDEF";
 	i = 0;
 	if (args > 15)
-	{
 		i += ft_puthexa(args / 16, flag);
-		i += ft_putchar(choose[args % 16]);
-	}
-	if (args <= 15)
-		i += ft_putchar(choose[args % 16]);
+	i += ft_putchar(choose[args % 16]);
 	return (i);
 }
 
@@ -75,9 +71,9 @@ static int	ft_specifiers(va_list args, const char **c)
 	else if (**c == 'p')
 		return (ft_putaddr(va_arg(args, void *)));
 	else if (**c == 'x' )
-		return (ft_puthexa(va_arg(args, unsigned long), 1));
+		return (ft_puthexa(va_arg(args, unsigned int), 1));
 	else if (**c == 'X')
-		return (ft_puthexa(va_arg(args, unsigned long), 0));
+		return (ft_puthexa(va_arg(args, unsigned int), 0));
 	else if (**c == 'u')
 		return (ft_putunsigned(va_arg(args, unsigned int)));
 	else if (**c == '%')
